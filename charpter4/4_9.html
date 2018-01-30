@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.9记忆之前计算出的值</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function isPrime(value){
+			if(!isPrime.answers) {
+				isPrime.answers = {};
+			}
+			if(isPrime.answers[value] !=null ){
+				return isPrime.answers[value];
+			}
+			var prime = value != 1;
+			for(var i = 2; i < value; i++){
+				if(value % i ===0){
+					return false;
+					break;
+				}
+			}
+			return isPrime.answers[value] = prime;
+		}
+		isPrime(5)
+		isPrime(8)
+		isPrime(5)
+	</script>
+</body>
+</html>

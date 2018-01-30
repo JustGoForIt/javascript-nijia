@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>代码清单2-1 一个适用所有现代浏览器的简单日志记录方法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function log(){
+			try{
+				console.log.apply(console,arguments);
+			}catch(e){
+				try{
+					opera.postError.apply(opera,arguments);
+				}catch(e){
+					alert(Array.prototype.join.call(arguments,""));
+				}
+			}
+		}
+		var x = 123;
+		log(x);
+	</script>
+</body>
+</html>
