@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟类似数组的方法</title>
+
+</head>
+<body>
+	<div id="first">
+		
+	</div>
+	<div id="second">
+		
+	</div>
+</body>
+	<script type="text/javascript">
+		var elems = {
+			length: 0,
+			add : function(elem){
+				Array.prototype.push.call(this,elem)
+			},
+			gather : function(id){
+				this.add(document.getElementById(id))
+			}
+		}
+		elems.gather('first');
+		elems.gather('second');
+
+	</script>
+</html>
