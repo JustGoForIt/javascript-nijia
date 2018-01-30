@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.6在计时器间隔回调</title>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/javascript">
+		function animateIt(elementId){
+			var elem = document.getElementById(elementId);
+			var tick = 0;
+			var timer = setInterval(function(){
+				if(tick < 100){
+					elem.style.left = elem.style.top = tick + 'px';
+					tick++;
+				}else{
+					clearInterval(timer);
+					console.log(tick);
+					console.log(elem);
+					console.log(timer);
+				}
+			},10);
+		}
+		animateIt('box')
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>在Ajax请求的callback里使用闭包</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<div id='testSubject'>
+		
+	</div>
+	<button type="button" id="testButton">Go!</button>
+	<script type="text/javascript">
+		$('#testButton').click(function () {
+			debugger
+			var elem = $('#testSubject')
+			elem.html('Loading...')
+			$.ajax({
+				url:'test.html'
+				success: function(){
+
+				}
+			})
+		})
+	</script>
+</body>
+</html>

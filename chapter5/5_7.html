@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.7给函数绑定一个特定的上下文</title>
+</head>
+<body>
+	<button id="test"></button>
+	<script type="text/javascript">
+		var button = {
+			clicked : false,
+			click : function(){
+				this.clicked = true;
+				console.log(button.clicked)
+			}
+		}
+		var elem = document.getElementById('test');
+		elem.addEventListener('click',button.click,false)
+		button.click()
+	</script>
+</body>
+</html>

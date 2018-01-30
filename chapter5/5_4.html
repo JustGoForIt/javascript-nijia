@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.4使用闭包模拟私有变量</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Ninja() {
+			var feints = 0;
+			this.getFeints = function(){
+				return feints
+			}
+			this.feint = function(){
+				return feints++
+			}
+		}
+		var ninja = new Ninja();
+		ninja.feint();
+		console.log(ninja.feints);
+		console.log(ninja.getFeints());
+		console.log(ninja.feint);
+	</script>
+</body>
+</html>

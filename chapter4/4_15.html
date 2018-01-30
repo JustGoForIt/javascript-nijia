@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.15函数重载</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function addMethod(object, name , fn){
+			var old = object[name];
+			object[name] = function(){
+				if(fn.length === arguments.length){
+					return fn.apply(this,arguments)
+				}else if(typeof old == "function"){
+					return old.apply(this,arguments)
+				}
+			}
+		}
+		var ninjas = {
+			values: ['kitty','Tom','Jane']
+		}
+		addMethod(ninjas,'find',function(){
+			debugger
+			return this.values
+		})
+		addMethod(ninjas,'find',function(name){
+			debugger
+			var ret = [];
+			for (var i = 0; i < this.values.length;i++){
+				if(this.values[i].indexOf(name) == 0){
+					ret.push(this.values[i])
+					return ret;
+				}
+			}
+		})
+		addMethod(ninjas,'find',function(first,last){
+			debugger
+			var ret = []
+			for(var i = 0; i < this.values.length; i++){
+				if(this.values[i] == (first + '' + last)){
+					ret.push(this.values[i]);
+				}
+			return ret;
+			}
+		})
+		//
+		//ninjas.find().length //3
+		//ninjas.find('kitty').length //2
+		//ninjas.find('kitty','Tom').length //1
+		//ninjas.find('kitty','Tom','Jane').length //null
+		ninjas.find()
+	</script>
+</body>
+</html>
